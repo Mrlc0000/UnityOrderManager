@@ -54,6 +54,10 @@ public class UIDepthTreeDataWindowEitor : EditorWindow
         GUI.color = Color.red;
         EditorGUILayout.IntField(point.mainOrder, GUILayout.MaxWidth(30));
         GUI.color = Color.white;
+        EditorGUILayout.LabelField("ISUI:", GUILayout.MaxWidth(40));
+        GUI.color = point.depth.IsUI? Color.green:Color.red;
+        point.depth.IsUI= EditorGUILayout.Toggle(point.depth.IsUI, GUILayout.MaxWidth(20));
+        GUI.color = Color.white;
         EditorGUILayout.LabelField("point:", GUILayout.MaxWidth(40));
         EditorGUILayout.ObjectField(point.depth, typeof(UIDepthPoint), GUILayout.MaxWidth(100));
         GUILayout.EndHorizontal();
