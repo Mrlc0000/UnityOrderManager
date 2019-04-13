@@ -168,36 +168,4 @@ public class UIDepthManagerEditor : Editor
 #endregion
 
 
-#region UIDepthTreeManagerEditor
 
-[CustomEditor(typeof(UIDepthTreeManager))]
-[CanEditMultipleObjects]
-public class UIDepthTreeManagerEditor : Editor
-{
-    UIDepthTreeManager script;
-
-    private void Awake()
-    {
-        script = target as UIDepthTreeManager;
-    }
-
-    public override void OnInspectorGUI()
-    {
-        base.OnInspectorGUI();
-        GUILayout.BeginVertical(EditorStyles.helpBox);
-
-        GUI.color = Color.red;
-        GUILayout.Label("务必请设置第一个物体的MainOrder字段，并将UIDepth拖入，且不能为0");
-        GUI.color = Color.green;
-        GUILayout.Label("子物体若包含UIDepth,点击更新会自动根据第一层级成倍迭增层级");
-        GUILayout.Label("层级不是迭代递增的需求 请不要使用本功能！！！");
-
-        if (GUILayout.Button("更新", GUILayout.Width(80)))
-        {
-            script.UpdateDepth();
-        }
-        GUILayout.EndVertical();  
-    }
-}
-
-#endregion
